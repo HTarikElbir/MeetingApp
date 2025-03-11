@@ -1,7 +1,13 @@
 var builder = WebApplication.CreateBuilder(args);
+
+//For mvc
+builder.Services.AddControllersWithViews();
+
 var app = builder.Build();
 
-builder.Services.AddControllersWithViews();
-app.MapGet("/", () => "Hello World!");
+//app.MapDefaultControllerRoute();
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Meeting}/{action=Index}/{id?}");
 
 app.Run();
