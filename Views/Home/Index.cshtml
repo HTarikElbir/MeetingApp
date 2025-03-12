@@ -2,7 +2,18 @@
     ViewBag.Title = "Meeting Attendance";
 }
 
+<main class="text-center">
+    <h1 class="h4">@ViewBag.Greeting</h1>
+    <p>Please indicate your attendance for the meeting</p>
 
-<h1 class="h4">@ViewBag.Greeting</h1>
-<p>Please indicate your attendance for the meeting</p>
-<a class="btn btn-sm btn-outline-primary" asp-controller="Meeting" asp-action="Apply">Apply</a>
+    <div class="card my-2">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">@Model.Location</li>
+            <li class="list-group-item">@Model.Date.ToString("dd/MM/yyyy HH:mm:ss")</li>
+            <li class="list-group-item">@Model.NumberOfPeople</li>
+        </ul>
+    </div>
+   
+    <a class="btn btn-sm btn-outline-primary" asp-controller="Meeting" asp-action="Apply">Apply</a>
+</main>
+

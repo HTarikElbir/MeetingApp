@@ -1,10 +1,29 @@
 ﻿@{
     ViewBag.Title = "Meeting Attendance Form";
 }
-
-
-<h1 class="h4">Meeting Attendance Form</h1>
+        
+<h1 class="h4 text-center">Meeting Attendance Form</h1>
 <form action="">
+    <div class="mb-3">
+        <label for="Name" class="form-label">Name</label>
+        <input type="text" name="Name" id="Name" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label for="Phone" class="form-label">Phone</label>
+        <input type="text" name="Phone" id="Phone" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label for="Email" class="form-label">Email</label>
+        <input type="email" name="Email" id="Email" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label for="WillAttend" class="form-label">WillAttend</label>
+        <select name="WillAttend" id="WillAttend" class="form-control">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select> 
+    </div>
+
 
     <button class="btn btn-outline-primary" type="submit">Save</button>
 </form>

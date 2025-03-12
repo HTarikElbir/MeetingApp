@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MeetingApp.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace MeetingApp.Controllers
 {
@@ -9,11 +10,21 @@ namespace MeetingApp.Controllers
         public IActionResult Index()
         {
             int clock = DateTime.Now.Hour;
+
             // ViewBag is a dynamic object that can be used to pass data from the controller to the view
             ViewBag.Greeting = clock < 12 ? "Good Morning" : "Good Afternoon";
             //ViewData["Greeting"] = clock < 12 ? "Good Morning" : "Good Afternoon";
 
-            return View();
+
+            var meetingInfo = new MeetingInfo
+            {
+                Id = 1,
+                Location = "Antalya",
+                Date = new DateTime(2025, 03, 10, 14, 0,0),
+                NumberOfPeople = "10"
+            };
+
+            return View(meetingInfo);
         }
 
     }
