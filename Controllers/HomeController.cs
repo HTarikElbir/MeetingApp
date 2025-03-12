@@ -15,13 +15,14 @@ namespace MeetingApp.Controllers
             ViewBag.Greeting = clock < 12 ? "Good Morning" : "Good Afternoon";
             //ViewData["Greeting"] = clock < 12 ? "Good Morning" : "Good Afternoon";
 
+            int userCount = Repository.Users.Where(u => u.WillAttend == true).Count();
 
             var meetingInfo = new MeetingInfo
             {
                 Id = 1,
                 Location = "Antalya",
                 Date = new DateTime(2025, 03, 10, 14, 0,0),
-                NumberOfPeople = "10"
+                NumberOfPeople = userCount
             };
 
             return View(meetingInfo);

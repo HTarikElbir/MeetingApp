@@ -1,21 +1,43 @@
-﻿@{
+﻿@model List<UserInfo>
+@{
     ViewBag.Title = "Meeting Attendance List";
 }
-<main class="text-center">
 
-    <div class="text-center">
-        <h1 class="h4">@ViewBag.Greeting</h1>
-        <p>Please indicate your attendance for the meeting</p>
 
-        <div class="card my-2">
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">@Model.Location</li>
-                <li class="list-group-item">@Model.Date.ToString("dd/MM/yyyy HH:mm:ss")</li>
-                <li class="list-group-item">@Model.NumberOfPeople</li>
-            </ul>
-        </div>
+<h1 class="h4 text-center">Meeting Attendance List</h1>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Attendance Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
 
-        <a class="btn btn-sm btn-outline-primary" asp-controller="Meeting" asp-action="Apply">Apply</a>
+        @{
+            int count = 0;
+        }
+
+        @foreach (var user in Model)
+        {
+            count++;
+            var rowColor = user.WillAttend ? "table-success" : "table-danger";
+                
+            <tr class="@rowColor">
+                <td>@user.Name</td>
+                <td>@(user.WillAttend ? "Attending" : "Not Attending")</td>
+           
+                <td>
+                      <a class="btn btn-sm btn-primary" href="#">Details</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+<div class="card text-center">
+    <div class="card-body">
+        <span>Total number of participants: @count</span>
     </div>
-
-</main>
+</div>
