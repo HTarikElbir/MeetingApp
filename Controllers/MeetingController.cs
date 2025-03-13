@@ -14,10 +14,18 @@ namespace MeetingApp.Controllers
         [HttpPost]
         public IActionResult Apply(UserInfo userInfo)
         {
-            //TODO: Save userInfo to database
-            Repository.AddUser(userInfo);
-            ViewBag.UserCount = Repository.Users.Where(u => u.WillAttend == true).Count(); 
-            return View("Thanks", userInfo);
+            if (ModelState.IsValid)
+            {
+                //TODO: Save userInfo to database
+                Repository.AddUser(userInfo);
+                ViewBag.UserCount = Repository.Users.Where(u => u.WillAttend == true).Count();
+                return View("Thanks", userInfo);
+            }
+            else
+            {
+                return View(userInfo);
+            }
+            
         }
         
         public IActionResult List()

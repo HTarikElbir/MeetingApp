@@ -1,0 +1,10 @@
+﻿.validation-summary-errors {
+    color: #ff0000;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.input-validation-error {
+    border: 1px solid #ff0000;
+    background-color: #ffcccc;
+}
