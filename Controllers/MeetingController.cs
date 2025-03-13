@@ -19,10 +19,16 @@ namespace MeetingApp.Controllers
             ViewBag.UserCount = Repository.Users.Where(u => u.WillAttend == true).Count(); 
             return View("Thanks", userInfo);
         }
-
+        
         public IActionResult List()
         {
             return View(Repository.Users);
+        }
+
+        // meeting/details/id
+        public IActionResult Details(int id)
+        { 
+            return View(Repository.GetById(id));
         }
     }
 }

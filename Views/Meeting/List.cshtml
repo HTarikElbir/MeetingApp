@@ -28,8 +28,8 @@
                 <td>@user.Name</td>
                 <td>@(user.WillAttend ? "Attending" : "Not Attending")</td>
            
-                <td>
-                      <a class="btn btn-sm btn-primary" href="#">Details</a>
+                <td>                    
+                    <a class="btn btn-sm btn-primary" href="/meeting/details/@user.Id">Details</a>
                 </td>
             </tr>
         }
